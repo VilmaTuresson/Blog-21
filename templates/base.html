@@ -8,15 +8,18 @@
     <title>Scuss</title>
 </head>
 <body>
+
     <h1>Posts:</h1>
 
     <ul>
     {% for post in object_list %}
-        <li>{{ post.title }} | {{ post.author.username }}</li>
+        <li><a href="{% url 'post_details' post.pk %}">
+            {{ post.title }} | {{ post.author.username }}</li></a>
         <li>{{ post.content }}</li>
         <li>{{ post.created_on }}</li>
         <hr>
     {% endfor %}
     </ul>
+    
 </body>
 </html>
