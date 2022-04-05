@@ -7,13 +7,17 @@
     <title>Post Details</title>
 </head>
 <body>
-    <h1>{{ post.title }}</h1>
+    <h2>{{ post.title }}</h2>
 
-    <h4>Post created by: {{ post.author.username }}</h4>
+    <small>Post created by: {{ post.author.username }}</small>
 
     <hr>
 
     {{ post.content }}
+    <hr>
+    <small>{{ post.created_on }}</small>
 
+    <br>
+    <a href="{% url 'home' %}">Go Back</a>
 </body>
 </html>
