@@ -4,8 +4,8 @@
     <h1>Posts:</h1>
 
     <ul>
-    {% for post in object_list %}
-        <li><a href="{% url 'post_details' post.pk %}">
+    {% for post in posts %}
+        <li><a href="{% url 'post_details' post.post_id %}">
             {{ post.title }} | {{ post.author.username }}</li></a>
         <li>{{ post.content }}</li>
         <li>{{ post.created_on }}</li>
