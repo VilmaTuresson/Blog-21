@@ -21,8 +21,3 @@ class PostDetails(DetailView):
     model = Post
     template_name = 'post_details.html'
 
-
-class AddPostView(CreateView):
-    model = Post
-    template_name = 'create_post.html'
-    fields = '__all__'
