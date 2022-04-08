@@ -48,7 +48,9 @@ def delete_post(request, post_id):
     View for deleting post
     """
     post = get_object_or_404(request, post_id=post_id)
-    if request.user == post.author:
-        post.delete()
-
+    if request.method == 'POST':
+        if request.user == post.author:
+            post.delete()
+        else:
+            return redirect('post_list_view')
     return redirect('post_list_view')
