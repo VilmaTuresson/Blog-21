@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-# from django.views import generic, View
-from django.views.generic import ListView, DetailView, CreateView
+from django.http import HttpResponseRedirect
+from .forms import PostForm
+from django.views import generic, View
+# from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
 
 
@@ -27,4 +29,15 @@ def post_details(request, post_id):
 
 
 def create_post(request):
-    return render(request, 'create_post.html')
+    """
+    View for creating new post
+    """
+    form = PostForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+            return HttpResponseRedirect('post_list_view')
+        
+    return render(request, 'create_post.html', {'form': form})
