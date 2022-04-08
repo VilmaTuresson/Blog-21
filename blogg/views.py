@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.views import generic, View
@@ -41,3 +41,14 @@ def create_post(request):
             return HttpResponseRedirect('post_list_view')
         
     return render(request, 'create_post.html', {'form': form})
+
+
+def delete_post(request, post_id):
+    """
+    View for deleting post
+    """
+    post = get_object_or_404(request, post_id=post_id)
+    if request.user == post.author:
+        post.delete()
+
+    return redirect('post_list_view')
