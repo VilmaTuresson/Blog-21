@@ -38,7 +38,7 @@ def create_post(request):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
-            return HttpResponseRedirect('post_list_view')
+            return redirect('post_list_view')
         
     return render(request, 'create_post.html', {'form': form})
 
