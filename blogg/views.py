@@ -52,3 +52,22 @@ def delete_post(request, post_id):
         post.delete()
 
     return redirect('post_list_view')
+
+
+def edit_post(request, post_id):
+    """
+    View for editing post
+    """
+    post = get_object_or_404(Post, post_id=post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+            return redirect('post_list_view')
+    form = PostForm(instance=post)
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_post.html', context)

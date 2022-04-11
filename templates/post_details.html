@@ -18,6 +18,7 @@
 
     {% if request.user == post.author %}
         <a href="{% url 'delete_post' post.post_id %}">Delete</a>
+        <a href="{% url 'edit_post' post.post_id %}">Edit</a>
     {% endif %}
     <a href="{% url 'post_list_view' %}">Go Back</a>
 
