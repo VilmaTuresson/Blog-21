@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+    <h1>Register an Account</h1>
+<div class="container form-group">
+    <div class="row">
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}
