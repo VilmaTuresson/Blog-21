@@ -15,7 +15,17 @@
     <small>{{ post.created_on }}</small>
     <form action="{% url 'like_btn' post.post_id %}" method="POST">
         {% csrf_token %}
-        <button type="submit" name="like_btn" value="{{ post_id }}">like</button> {{ num_of_likes }}
+
+    {% if user.is_authenticated %}
+        {% if liked %}
+            <button type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-solid fa-heart"></i></button> <small>{{ num_of_likes }}</small>
+        {% else %}
+            <button type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-regular fa-heart"></i></button> <small>{{ num_of_likes }}</small>
+        {% endif %}
+    {% else %}
+        <small>Login to like this post!</small>
+    {% endif %}
+
     </form>
 
     <br>

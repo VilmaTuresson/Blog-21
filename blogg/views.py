@@ -21,12 +21,19 @@ def post_details(request, post_id):
     """
     View for clicking post to see more
     """
+    
     liked_post = get_object_or_404(Post, post_id=post_id)
     num_of_likes = liked_post.num_of_likes()
+
+    liked = False
+    if liked_post.likes.filter(id=request.user.id).exists():
+        liked = True
+
     post = get_object_or_404(Post, post_id=post_id)
     context = {
         'post': post,
         'num_of_likes': num_of_likes,
+        'liked': liked,
     }
 
     return render(request, 'post_details.html', context)
@@ -37,7 +44,13 @@ def like_view(request, post_id):
     View for liking posts
     """
     post = get_object_or_404(Post, post_id=post_id)
-    post.likes.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
     return HttpResponseRedirect(reverse('post_details', args=[str(post_id)]))
 
 
