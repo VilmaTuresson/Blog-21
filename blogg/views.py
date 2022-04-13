@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.views import generic, View
-# from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse
 from .models import Post
 
 
@@ -21,11 +21,24 @@ def post_details(request, post_id):
     """
     View for clicking post to see more
     """
+    liked_post = get_object_or_404(Post, post_id=post_id)
+    num_of_likes = liked_post.num_of_likes()
     post = get_object_or_404(Post, post_id=post_id)
     context = {
-        'post': post
+        'post': post,
+        'num_of_likes': num_of_likes,
     }
+
     return render(request, 'post_details.html', context)
+
+
+def like_view(request, post_id):
+    """
+    View for liking posts
+    """
+    post = get_object_or_404(Post, post_id=post_id)
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post_details', args=[str(post_id)]))
 
 
 def create_post(request):

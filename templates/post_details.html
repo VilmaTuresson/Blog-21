@@ -13,6 +13,10 @@
     {{ post.content }}
     <hr>
     <small>{{ post.created_on }}</small>
+    <form action="{% url 'like_btn' post.post_id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="like_btn" value="{{ post_id }}">like</button> {{ num_of_likes }}
+    </form>
 
     <br>
 
