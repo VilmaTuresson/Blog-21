@@ -9,5 +9,5 @@ class UserRegistration(generic.CreateView):
     View for user registrations
     """
     form_class = UserCreationForm
-    template_name = 'register/register.html'
+    template_name = 'registration/register.html'
     success_url = reverse_lazy('post_list_view')

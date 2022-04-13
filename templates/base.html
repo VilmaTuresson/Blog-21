@@ -7,7 +7,7 @@
     {% for post in posts %}
         <li><a href="{% url 'post_details' post.post_id %}">
             {{ post.title }} | {{ post.author.username }}</li></a>
-        <li>{{ post.content }}</li>
+        <li>{{ post.content|slice:":300" }}</li>
         <li>{{ post.created_on }}</li>
         <hr>
     {% endfor %}
