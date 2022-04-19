@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.urls import reverse_lazy
+from .forms import RegistrationFields
 
 
 class UserRegistration(generic.CreateView):
     """
     View for user registrations
     """
-    form_class = UserCreationForm
+    form_class = RegistrationFields
     template_name = 'registration/register.html'
     success_url = reverse_lazy('post_list_view')
 
