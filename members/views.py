@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import RegistrationFields, EditProfileForm
 
@@ -27,3 +28,15 @@ class UserEditProfile(generic.UpdateView):
         function to return users profile
         """
         return self.request.user
+
+
+class UpdatePasswordView(PasswordChangeView):
+    """
+    Class for changing password
+    """
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('changed_password')
+
+
+def changed_password(request):
+    return render(request, 'registration/changed_password.html', {})
