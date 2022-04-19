@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.urls import reverse_lazy
-from .forms import RegistrationFields
+from .forms import RegistrationFields, EditProfileForm
 
 
 class UserRegistration(generic.CreateView):
@@ -18,7 +18,7 @@ class UserEditProfile(generic.UpdateView):
     """
     View for updating profile
     """
-    form_class = UserChangeForm
+    form_class = EditProfileForm
     template_name = 'registration/edit_profile.html'
     success_url = reverse_lazy('post_list_view')
 
