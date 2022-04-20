@@ -3,7 +3,7 @@ from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from .forms import RegistrationFields, EditProfileForm
+from .forms import RegistrationFields, EditProfileForm, UpdatepasswordForm
 
 
 class UserRegistration(generic.CreateView):
@@ -34,9 +34,12 @@ class UpdatePasswordView(PasswordChangeView):
     """
     Class for changing password
     """
-    form_class = PasswordChangeForm
+    form_class = UpdatepasswordForm
     success_url = reverse_lazy('changed_password')
 
 
 def changed_password(request):
+    """
+    Function to redirect user if password is changed successfully
+    """
     return render(request, 'registration/changed_password.html', {})

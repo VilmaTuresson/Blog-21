@@ -11,6 +11,14 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 {{ form }}
+                <br>
+                <ul>
+                    <li>Your password can not be too similar to your other personal information.</li>
+                    <li>Your password must contain at least 8 characters.</li>
+                    <li>Your password can not be a commonly used password.</li>
+                    <li>Your password can not be entirely numeric.</li>
+                </ul>
+                <br>
                 <button class="btn btn-primary" type="submit">Save</button>
             </form>
         </div>
