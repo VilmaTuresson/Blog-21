@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.views import generic, View
 from django.urls import reverse
-from .models import Post
+from .models import Post, User
 
 
 def post_list_view(request):
@@ -97,3 +97,23 @@ def edit_post(request, post_id):
         'form': form
     }
     return render(request, 'edit_post.html', context)
+
+
+def liked_posts_view(request):
+    """
+    View for user activity, created and liked posts
+    """
+    user_id = request.user
+    posts = Post.objects.filter(author=user_id)
+    user_liked_posts = Post.objects.filter(likes__username__contains=user_id)
+
+    if request.GET:
+        if 'liked' in request.GET['userposts']:
+            posts = user_liked_posts
+
+
+    context = {
+        'posts': posts,
+    }
+
+    return render(request, 'liked_posts.html', context)
