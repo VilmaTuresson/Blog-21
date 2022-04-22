@@ -13,8 +13,11 @@
     {{ post.content }}
     <hr>
     <small>{{ post.created_on }}</small>
+
     <form action="{% url 'like_btn' post.post_id %}" method="POST">
         {% csrf_token %}
+
+    <br>
 
     {% if user.is_authenticated %}
         {% if liked %}
@@ -36,4 +39,19 @@
     {% endif %}
     <a href="{% url 'post_list_view' %}">Go Back</a>
 
+    <hr>
+
+    <h3>Comments</h3>
+    <br>
+
+    {% if not post.comments.all %}
+        No comments yet!
+    {% else %}
+        {% for comment in post.comments.all %}
+            by: {{ comment.name }} |
+            {{ comment.body }} |
+            <small>{{ comment.created_on }}</small>
+            <hr>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
