@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1>Write a comment!</h1>
+<div class="container form-group">
+    <div class="row">
+        <div class="col">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <br>
+                <button class="btn btn-primary" type="submit">Comment</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}

@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from django.http import HttpResponseRedirect
-from .forms import PostForm
+from django.views.generic import CreateView
+from .forms import PostForm, CommentForm
 from django.views import generic, View
 from django.urls import reverse
-from .models import Post, User
+from .models import Post, User, Comment
+
 
 
 def post_list_view(request):
@@ -117,3 +119,19 @@ def liked_posts_view(request):
     }
 
     return render(request, 'liked_posts.html', context)
+
+
+class AddCommentView(CreateView):
+    """
+    View for creating comment
+    """
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+
+    def form_valid(self, form):
+        """
+        Function to 
+        """
+        form.instance.post_id = self.kwargs['post_id']
+        return super().form_valid(form)

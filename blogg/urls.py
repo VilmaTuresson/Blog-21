@@ -1,5 +1,6 @@
-from blogg.views import post_list_view, post_details, create_post, delete_post, edit_post, liked_posts_view
+from blogg.views import post_list_view, post_details, create_post, delete_post, edit_post, liked_posts_view, AddCommentView
 from . import views
+from .views import AddCommentView
 from django.urls import path
 
 
@@ -10,5 +11,6 @@ urlpatterns = [
     path('delete_post/<int:post_id>', views.delete_post, name='delete_post'),
     path('edit_post/<int:post_id>', views.edit_post, name='edit_post'),
     path('like/<int:post_id>', views.like_view, name='like_btn'),
-    path('liked_posts', views.liked_posts_view, name='liked_posts')
+    path('liked_posts', views.liked_posts_view, name='liked_posts'),
+    path('article/<int:post_id>/comment', AddCommentView.as_view(), name='comments'),
 ]
