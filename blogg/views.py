@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
 from .forms import PostForm, CommentForm
 from django.views import generic, View
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Post, User, Comment
 
 
@@ -128,10 +128,15 @@ class AddCommentView(CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'add_comment.html'
+    #success_url = reverse_lazy('post_details')
+
+    def get_success_url(self):
+        comment_return = self.kwargs['post_id']
+        return reverse_lazy('post_details', kwargs={'post_id': comment_return})
 
     def form_valid(self, form):
         """
         Function to 
         """
         form.instance.post_id = self.kwargs['post_id']
-        return super().form_valid(form)
+        return super().form_valid(form)  
