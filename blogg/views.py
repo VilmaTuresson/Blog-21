@@ -131,12 +131,15 @@ class AddCommentView(CreateView):
     #success_url = reverse_lazy('post_details')
 
     def get_success_url(self):
+        """
+        Function to return to post after commenting
+        """
         comment_return = self.kwargs['post_id']
         return reverse_lazy('post_details', kwargs={'post_id': comment_return})
 
     def form_valid(self, form):
         """
-        Function to 
+        Function to validate comment form
         """
         form.instance.post_id = self.kwargs['post_id']
-        return super().form_valid(form)  
+        return super().form_valid(form)
