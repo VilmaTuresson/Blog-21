@@ -42,18 +42,25 @@
     <hr>
 
     <h3>Comments</h3>
-    <a href="{% url 'comments' post.post_id %}">Add comment</a>
+    <form action="{% url 'post_details' post.post_id %}" method="POST">
+        {{ comment_form }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
     <br>
-    {% if not post.comments.all %}
-        No comments yet!
-    {% else %}
+    {% if comments %}
     <br>
-        {% for comment in post.comments.all %}
+        {% for comment in comments %}
             by: {{ comment.name }} |
             {{ comment.body }} |
             <small>{{ comment.created_on }}</small>
+            
+            {% if comment.name == request.user or post.author == request.user %}
+                <a href="{% url 'delete_comment' comment.pk  %}">Delete</a>
+            {% endif %}
             <hr>
-            <a href="{% url 'delete_comment' comment.pk  %}">Delete</a>
         {% endfor %}
+        {% else %}
+            No comments yet!
     {% endif %}
 {% endblock %}

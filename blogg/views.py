@@ -8,9 +8,6 @@ from django.urls import reverse, reverse_lazy
 from .models import Post, User, Comment
 
 
-
-
-
 def post_list_view(request):
     """
     View for home page with list of posts
@@ -26,7 +23,18 @@ def post_details(request, post_id):
     """
     View for clicking post to see more
     """
-    
+    post = get_object_or_404(Post, post_id=post_id)
+    comments = Comment.objects.filter(post=post)
+    comment_form = CommentForm(request.POST)
+
+    if request.method == 'POST':
+        if comment_form.is_valid():
+            post_comment = comment_form.save(commit=False)
+            post_comment.name = request.user
+            post_comment.post = post
+            post_comment.save()
+            return redirect(request.path_info)
+            
     liked_post = get_object_or_404(Post, post_id=post_id)
     num_of_likes = liked_post.num_of_likes()
 
@@ -34,11 +42,12 @@ def post_details(request, post_id):
     if liked_post.likes.filter(id=request.user.id).exists():
         liked = True
 
-    post = get_object_or_404(Post, post_id=post_id)
     context = {
         'post': post,
         'num_of_likes': num_of_likes,
         'liked': liked,
+        'comments': comments,
+        'comment_form': comment_form
     }
 
     return render(request, 'post_details.html', context)
@@ -115,7 +124,7 @@ def liked_posts_view(request):
     if request.GET:
         if 'liked' in request.GET['userposts']:
             posts = user_liked_posts
-
+            
 
     context = {
         'posts': posts,
@@ -124,30 +133,30 @@ def liked_posts_view(request):
     return render(request, 'liked_posts.html', context)
 
 
-class AddCommentView(CreateView):
-    """
-    View for creating comment
-    """
+
+# class AddCommentView(CreateView):
+#     """
+#     View for creating comment
+#     """
     
-    model = Comment
-    form_class = CommentForm
-    login_required = True
-    template_name = 'add_comment.html'
+#     model = Comment
+#     form_class = CommentForm
+#     login_required = True
+#     template_name = 'add_comment.html'
 
-    def get_success_url(self):
-        """
-        Function to return to post after commenting
-        """
-        comment_return = self.kwargs['post_id']
-        return reverse_lazy('post_details', kwargs={'post_id': comment_return})
+#     def get_success_url(self):
+#         """
+#         Function to return to post after commenting
+#         """
+#         comment_return = self.kwargs['post_id']
+#         return reverse_lazy('post_details', kwargs={'post_id': comment_return})
 
-    def form_valid(self, form):
-        """
-        Function to validate comment form
-        """
-        form.instance.post_id = self.kwargs['post_id']
-        return super().form_valid(form)
-
+#     def form_valid(self, form):
+#         """
+#         Function to validate comment form
+#         """
+#         form.instance.post_id = self.kwargs['post_id']
+#         return super().form_valid(form)
 
 @login_required
 def delete_comment(request, pk):
