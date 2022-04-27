@@ -8,5 +8,3 @@ urlpatterns = [
     path('password/', UpdatePasswordView.as_view(template_name='registration/change_passsword.html')),
     path('changed_password', views.changed_password, name='changed_password'),
 ]
-
-

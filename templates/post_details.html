@@ -53,6 +53,7 @@
             {{ comment.body }} |
             <small>{{ comment.created_on }}</small>
             <hr>
+            <a href="{% url 'delete_comment' comment.pk  %}">Delete</a>
         {% endfor %}
     {% endif %}
 {% endblock %}

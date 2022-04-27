@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
+from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
 from django.views import generic, View
 from django.urls import reverse, reverse_lazy
 from .models import Post, User, Comment
+
+
 
 
 
@@ -125,10 +128,11 @@ class AddCommentView(CreateView):
     """
     View for creating comment
     """
+    
     model = Comment
     form_class = CommentForm
+    login_required = True
     template_name = 'add_comment.html'
-    #success_url = reverse_lazy('post_details')
 
     def get_success_url(self):
         """
@@ -143,3 +147,13 @@ class AddCommentView(CreateView):
         """
         form.instance.post_id = self.kwargs['post_id']
         return super().form_valid(form)
+
+
+@login_required
+def delete_comment(request, pk):
+    """
+    Function to delete comment
+    """
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

@@ -143,6 +143,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+LOGIN_URL = '/members/login'
 LOGIN_REDIRECT_URL = 'post_list_view'
 LOGOUT_REDIRECT_URL = 'post_list_view'
