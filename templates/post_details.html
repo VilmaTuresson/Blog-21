@@ -21,9 +21,11 @@
 
     {% if user.is_authenticated %}
         {% if liked %}
-            <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-solid fa-heart"></i></button> <small>{{ num_of_likes }}</small>
+            <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-solid fa-heart"></i></button> 
+            <small>{{ num_of_likes }}</small>
         {% else %}
-            <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-regular fa-heart"></i></button> <small>{{ num_of_likes }}</small>
+            <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-regular fa-heart"></i></button> 
+            <small>{{ num_of_likes }}</small>
         {% endif %}
     {% else %}
         <small>Login to like this post!</small>
