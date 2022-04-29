@@ -4,6 +4,10 @@ body {
     font-family: 'barlow', sans-serif;
 }
 
+hr {
+    color: #520652;
+}
+
 #navbar {
    background-color: #ddbadd;
 }
@@ -48,10 +52,25 @@ a:hover {
     color: black;
 } */
 
-#post-container {
+.post-container {
     padding: 40px;
     border: 2px solid #ddbadd;
     border-radius: 5px;
     background-color: white;
 }
 
+.btn-styled {
+    background-color: #ddbadd;
+    border: 1px solid #520652;
+    border-radius: 3px;
+    margin: 2px;
+}
+
+#post-btn {
+    margin-top: 10px;
+    float: right;
+}
+
+.top-margin {
+    margin-top: 10px;
+}

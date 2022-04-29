@@ -2,26 +2,26 @@
 
 {% block content %}
 
-    <div class="container">
+    <div class="container post-container">
         <div class="row">
             <div class="col-12 md-10 offset 1">
 
-    <h3>My Activity</h3>
+                <h3>My Activity</h3>
 
-    <br>
-    
-    <button type="button" class="btn btn-outline-primary"><a href="{% url 'liked_posts' %}?userposts=posts">Posts</a></button>
-    <button type="button" class="btn btn-outline-primary"><a href="{% url 'liked_posts' %}?userposts=liked">Liked Posts</a></button>
+                <br>
+                
+                <button type="button" class=" btn btn-styled"><a href="{% url 'liked_posts' %}?userposts=posts">Posts</a></button>
+                <button type="button" class="btn btn-styled"><a href="{% url 'liked_posts' %}?userposts=liked">Liked Posts</a></button>
 
-    <hr>
-    
-    {% for post in posts %}
-        <h6><a href="{% url 'post_details' post.post_id %}">
-            {{ post.title }} | {{ post.author.username }}</h6></a>
-        <p>{{ post.content|slice:":300" }}</p>
-        <p>{{ post.created_on }}</p>
-        <hr>
-    {% endfor %}
+                <hr>
+                
+                {% for post in posts %}
+                    <h6><a href="{% url 'post_details' post.post_id %}">
+                        {{ post.title }} | {{ post.author.username }}</h6></a>
+                    <p>{{ post.content|slice:":300" }}</p>
+                    <p>{{ post.created_on }}</p>
+                    <hr>
+                {% endfor %}
     
 
             </div>
