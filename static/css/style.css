@@ -81,3 +81,8 @@ a:hover {
 .top-margin {
     margin-top: 10px;
 }
+
+.helptext a {
+    color: #520652;
+    text-decoration: underline;
+}
