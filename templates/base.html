@@ -8,8 +8,8 @@
                 <div class="post">
 
                 {% for post in posts %}
-                    <h6><a class="title-links" href="{% url 'post_details' post.post_id %}">
-                        {{ post.title }} | {{ post.author.username }}</a></h3>
+                    <h5><a class="title-links" href="{% url 'post_details' post.post_id %}">
+                        {{ post.title }} | {{ post.author.username }}</a></h5>
                     <p>{{ post.content|slice:":300" }}</p>
                     <p>{{ post.created_on }}</p>
                     <hr>

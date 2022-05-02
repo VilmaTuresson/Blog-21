@@ -59,6 +59,7 @@
             <br>
 
             {% if user.is_authenticated %}
+            <h5>Add a comment!</h5>
                 <form action="{% url 'post_details' post.post_id %}" method="POST">
                     {{ comment_form }}
                     {% csrf_token %}
@@ -83,7 +84,7 @@
                     <small>{{ comment.created_on }}</small>
                             
                     {% if comment.name == request.user or post.author == request.user %}
-                        <a href="{% url 'delete_comment' comment.pk  %}">Delete</a>
+                        <a href="{% url 'delete_comment' comment.pk  %}"> <strong>Delete</strong></a>
                     {% endif %}
             <hr>
                 {% endfor %}
