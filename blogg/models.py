@@ -13,7 +13,6 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name='blog_posts')
     created_on = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-    post_img = CloudinaryField('image', blank=True)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
     class Meta:
