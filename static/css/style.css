@@ -44,15 +44,10 @@ a:hover {
     text-decoration: underline;
 }
 
-/* #drop-down {
-    color: black;
-    border: 1px solid black;
-}
-
 .navbar-toggler {
     border: 1px solid black;
     color: black;
-} */
+}
 
 /* --------------------------------------------- Container */
 
@@ -78,11 +73,23 @@ a:hover {
     float: right;
 }
 
-.top-margin {
-    margin-top: 10px;
-}
+/* --------------------------------------------- Links */
 
 .helptext a {
     color: #520652;
     text-decoration: underline;
+}
+
+/* --------------------------------------------- Media queries */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .post-container {
+        border: none
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .post-container {
+        border: none
+    }
 }
