@@ -21,6 +21,7 @@ class PostForm(forms.ModelForm):
             })
         }
 
+
 class CommentForm(forms.ModelForm):
     """
     Class for adding a comment to a post
@@ -36,4 +37,3 @@ class CommentForm(forms.ModelForm):
                 'class': 'form-control'
             })
         }
-

@@ -4,84 +4,95 @@
 
 {% block content %}
 
-    <h2>{{ post.title }}</h2>
-
-    <small class="top-margin">Post created by: {{ post.author.username }}</small>
-
-    <hr>
-
-    {{ post.content }}
-
-    <hr>
-
-    <small>{{ post.created_on }}</small> 
-
-    <br>
-    <br>
-
-    {% if request.user == post.author %}
-        <button class="btn btn-styled"><a href="{% url 'delete_post' post.post_id %}">Delete</a></button>
-        <button class="btn btn-styled"><a href="{% url 'edit_post' post.post_id %}">Edit</a> </button>
-    {% endif %}
-    <button class="btn btn-styled"><a href="{% url 'post_list_view' %}">Go Back</a></button>
-
-    <br>
-    <br>
-    
-    <form action="{% url 'like_btn' post.post_id %}" method="POST">
-        {% csrf_token %}
-
-    {% if user.is_authenticated %}
-        {% if liked %}
-            <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-solid fa-heart"></i></button> 
-            <small>{{ num_of_likes }}</small>
-        {% else %}
-            <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-regular fa-heart"></i></button> 
-            <small>{{ num_of_likes }}</small>
-        {% endif %}
-    {% else %}
-        <small>Login to like this post!</small>
-    {% endif %}
-
-    <br>
-
-    </form>
-
-    <br>
-
-    <hr>
-
-    <h3>Comments</h3>
-
-    <form action="{% url 'post_details' post.post_id %}" method="POST">
-        {{ comment_form }}
-        {% csrf_token %}
-        <button type="submit" class="btn btn-styled" id="post-btn">Submit</button>
-    </form>
-
-    <br>
+<div class="container post-container">
+    <div class="row">
+        <div class="col-12 md-col-10 offset 1">
             
-    {% if comments %}
-            
-    <br>
-                
-        {% for comment in comments %}
-            by: {{ comment.name }} |
-            {{ comment.body }} |
-            <small>{{ comment.created_on }}</small>
-                    
-            {% if comment.name == request.user or post.author == request.user %}
-                <a href="{% url 'delete_comment' comment.pk  %}">Delete</a>
+            <h2>{{ post.title }}</h2>
+
+            <small class="top-margin">Post created by: {{ post.author.username }}</small>
+
+            <hr>
+
+            {{ post.content }}
+
+            <hr>
+
+            <small>{{ post.created_on }}</small> 
+
+            <br>
+            <br>
+
+            {% if request.user == post.author %}
+                <button class="btn btn-styled"><a href="{% url 'delete_post' post.post_id %}">Delete</a></button>
+                <button class="btn btn-styled"><a href="{% url 'edit_post' post.post_id %}">Edit</a> </button>
             {% endif %}
-    <hr>
-        {% endfor %}
+            <button class="btn btn-styled"><a href="{% url 'post_list_view' %}">Go Back</a></button>
 
-    {% else %}
+            <br>
+            <br>
+            
+            <form action="{% url 'like_btn' post.post_id %}" method="POST">
+                {% csrf_token %}
 
-        No comments yet!
+            {% if user.is_authenticated %}
+                {% if liked %}
+                    <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-solid fa-heart"></i></button> 
+                    <small>{{ num_of_likes }}</small>
+                {% else %}
+                    <button class="btn" type="submit" name="like_btn" value="{{ post_id }}"><i class="fa-regular fa-heart"></i></button> 
+                    <small>{{ num_of_likes }}</small>
+                {% endif %}
+            {% else %}
+                <small>Login to like this post!</small>
+            {% endif %}
 
-    {% endif %}
-        {% endblock %}
+            <br>
+
+            </form>
+
+            <br>
+
+            <hr>
+
+            <h3>Comments</h3>
+            <br>
+
+            {% if user.is_authenticated %}
+                <form action="{% url 'post_details' post.post_id %}" method="POST">
+                    {{ comment_form }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-styled" id="post-btn">Submit</button>
+                </form>
+            {% else %}
+                <small>Login to comment on this post!</small>
+                <br>
+                <hr>
+            {% endif %}
+            
+
+            <br>
+                    
+            {% if comments %}
+                    
+            <br>
+                        
+                {% for comment in comments %}
+                    by: {{ comment.name }} |
+                    {{ comment.body }} |
+                    <small>{{ comment.created_on }}</small>
+                            
+                    {% if comment.name == request.user or post.author == request.user %}
+                        <a href="{% url 'delete_comment' comment.pk  %}">Delete</a>
+                    {% endif %}
+            <hr>
+                {% endfor %}
+
+            {% else %}
+                No comments yet!
+
+            {% endif %}
+                {% endblock %}
 
         </div>
     </div>

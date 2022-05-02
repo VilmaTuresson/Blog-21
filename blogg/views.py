@@ -1,11 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
-from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from .forms import PostForm, CommentForm
-from django.views import generic, View
-from django.urls import reverse, reverse_lazy
-from .models import Post, User, Comment
+from .models import Post, Comment
 
 
 def post_list_view(request):
@@ -34,7 +32,7 @@ def post_details(request, post_id):
             post_comment.post = post
             post_comment.save()
             return redirect(request.path_info)
-            
+
     liked_post = get_object_or_404(Post, post_id=post_id)
     num_of_likes = liked_post.num_of_likes()
 
@@ -79,7 +77,7 @@ def create_post(request):
             new_post.author = request.user
             new_post.save()
             return redirect('post_list_view')
-        
+
     return render(request, 'create_post.html', {'form': form})
 
 
@@ -124,7 +122,6 @@ def liked_posts_view(request):
     if request.GET:
         if 'liked' in request.GET['userposts']:
             posts = user_liked_posts
-            
 
     context = {
         'posts': posts,
@@ -132,31 +129,6 @@ def liked_posts_view(request):
 
     return render(request, 'liked_posts.html', context)
 
-
-
-# class AddCommentView(CreateView):
-#     """
-#     View for creating comment
-#     """
-    
-#     model = Comment
-#     form_class = CommentForm
-#     login_required = True
-#     template_name = 'add_comment.html'
-
-#     def get_success_url(self):
-#         """
-#         Function to return to post after commenting
-#         """
-#         comment_return = self.kwargs['post_id']
-#         return reverse_lazy('post_details', kwargs={'post_id': comment_return})
-
-#     def form_valid(self, form):
-#         """
-#         Function to validate comment form
-#         """
-#         form.instance.post_id = self.kwargs['post_id']
-#         return super().form_valid(form)
 
 @login_required
 def delete_comment(request, pk):

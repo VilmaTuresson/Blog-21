@@ -3,17 +3,17 @@
 {% block content %}
 
     <h1>Edit post</h1>
-<div class="container form-group">
-    <div class="row">
-        <div class="col">
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form }}
-                <button class="btn btn-styled" type="submit">Edit</button>
-            </form>
+        <div class="container form-group">
+            <div class="row">
+                <div class="col">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-styled" type="submit">Edit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     
 
 {% endblock %}

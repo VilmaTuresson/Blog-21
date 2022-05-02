@@ -17,15 +17,18 @@ class RegistrationFields(UserCreationForm):
         'class': 'form-control'}))
 
     class Meta:
+        """
+        Meta class for RegistationFields class
+        """
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         """
-        Placeholder
+        Function to add form control class
         """
         super(RegistrationFields, self).__init__(*args, **kwargs)
-        
+
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
@@ -33,9 +36,12 @@ class RegistrationFields(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     """
-    Class for additional fields in registration form
+    Class for editing profile information
     """
     class Meta:
+        """
+        Meta class for EditProfileForm class
+        """
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password']
         widgets = {
@@ -48,17 +54,23 @@ class EditProfileForm(UserChangeForm):
 
 class UpdatepasswordForm(PasswordChangeForm):
     """
-    Class for additional fields in registration form
+    Class to update password
     """
-    old_password = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={
-        'class': 'form-control', 'type': 'password'}))
+    old_password = forms.CharField(max_length=50, widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control', 'type': 'password'}))
 
-    new_password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={
-        'class': 'form-control', 'type': 'password'}))
+    new_password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control', 'type': 'password'}))
 
-    new_password2 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={
-        'class': 'form-control', 'type': 'password'}))
+    new_password2 = forms.CharField(max_length=50, widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control', 'type': 'password'}))
 
     class Meta:
+        """
+        Meta class for UpdatepasswordForm class
+        """
         model = User
         fields = ('old_password', 'new_password1', 'new_password2')

@@ -4,10 +4,11 @@
 
 {% block content %}
 
-    <h1>Change Password</h1>
+    
 <div class="container form-group">
     <div class="row">
         <div class="col">
+            <h1>Change Password</h1>
             <form action="" method="POST">
                 {% csrf_token %}
                 {{ form }}
@@ -19,7 +20,7 @@
                     <li>Your password can not be entirely numeric.</li>
                 </ul>
                 <br>
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn btn-styled" type="submit">Save</button>
             </form>
         </div>
     </div>

@@ -8,6 +8,8 @@ hr {
     color: #520652;
 }
 
+/* --------------------------------------------- nav bar */
+
 #navbar {
    background-color: #ddbadd;
 }
@@ -52,14 +54,17 @@ a:hover {
     color: black;
 } */
 
+/* --------------------------------------------- Container */
+
 .post-container {
     padding: 40px;
     border: 2px solid #ddbadd;
     border-radius: 5px;
     background-color: white;
     margin-bottom: 20px;
-
 }
+
+/* --------------------------------------------- Button style */
 
 .btn-styled {
     background-color: #ddbadd;
@@ -76,27 +81,3 @@ a:hover {
 .top-margin {
     margin-top: 10px;
 }
-
-
-/* footer {
-    background-color: #520652;
-    bottom: 0;
-    height: auto;
-    position: absolute;
-}
-
-.footer-links {
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.footer-links li {
-    display: inline
-}
-
-.footer-links i {
-    font-size: 2em;
-    color: white;
-    text-decoration: none;
-    margin: 1%;
-} */
