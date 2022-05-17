@@ -2,9 +2,30 @@
 
 This is a discussion forum, open for all with a motive to connect and share various topics through blog posts! As soon as a user registers an account they can create their own posts and interact with others by commenting and liking! Under the activity tab, the registered user can easily see all their created posts and all their previously liked posts. [Link to deplyed site.](https://blog-vt-21.herokuapp.com/)
 
+
+## TABLE OF CONTENTS
+1. [FEATURES](#features)
+    - [Existing Features](#existing-features)
+    - [Features to be implemented](#features-to-be-implemented)
+
+2. [UX](#ux)
+    - [User Stories](#user-stories)
+    - [Design Choices](#design-choices)
+      - [User Experience](#user-experience)
+      - [Fonts](#fonts)
+      - [Colors](#colors)
+
+3. [DEPLOYMENT](#deployment)
+
+4. [TESTING](#testing)
+    - [Fixed Bugs](#fixed-bugs)
+    - [Unfixed Bugs](#unfixed-bugs)
+
+5. [Credits](#credits)
+
 ## FEATURES
 
-### Existing features
+### Existing Features
 
 - As the user firsts visit the page they can see all the posts and all comments but need to create an account to be able to write their own comments and posts. In the navigation bar at the top of the page, there is a link to registration. In the registration form, the user can set their username, full name, email address, and password. After creating an account the user is redirected to the home page where they have access to all functionality via the navigation bar.
 
@@ -45,9 +66,9 @@ This is a discussion forum, open for all with a motive to connect and share vari
 - As a site user, I can view the posts that I have liked so that I can get an overview of my activity.
 
 
-### DESIGN CHOICES
+### Design Choices
 
-**UX:**
+**User Experience:**
 All clickable links are underlined when hovered over, the logo will take the user back to the home page but will not display an underline, it is simply clickable because of the common subconscious habit to use the logo as a form of navigation. The home view and the activity view have the same layout to create a familiar pattern in design. All forms are made with the same mindset.
 
 **Fonts:**
