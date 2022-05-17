@@ -1,6 +1,6 @@
 # SCUSS
 
-This is a discussion forum, open for all with a motive to connect and share various topics through blog posts! As soon as a user registers an account they can create their own posts and interact with others by commenting and liking! Under the activity tab, the registered user can easily see all their created posts and all their previously liked posts.
+This is a discussion forum, open for all with a motive to connect and share various topics through blog posts! As soon as a user registers an account they can create their own posts and interact with others by commenting and liking! Under the activity tab, the registered user can easily see all their created posts and all their previously liked posts. [Link to deplyed site.](https://blog-vt-21.herokuapp.com/)
 
 ## FEATURES
 
