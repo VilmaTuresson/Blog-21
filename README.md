@@ -75,4 +75,8 @@ The article is taken from the website [freecodecamp.org](https://www.freecodecam
 ### Unfixed Bugs
 - no bugs remaining
 
+## CREDITS
+ 
+**Stan Georgian for freecodecamp.org**
+- For the article on the Heroku deployment process
 
