@@ -68,7 +68,6 @@ class UpdatepasswordForm(PasswordChangeForm):
         attrs={
             'class': 'form-control', 'type': 'password'}))
 
-
     class Meta:
         """
         Meta class for UpdatepasswordForm class
