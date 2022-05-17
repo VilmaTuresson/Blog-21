@@ -25,3 +25,34 @@ This is a discussion forum, open for all with a motive to connect and share vari
 - Functionality to add a profile picture
 - Functionality to add images to posts
 - Functionality to edit a comment
+
+## UX
+
+### User Stories 
+
+- As a site user, I can create an account so that I can interact with the content.
+- As a site user, I can update my account so that I can handle my information.
+- As a site user, I can create, update and delete posts so that I can manage my content.
+- As a site user, I can view a list of posts so that I can get an overview of all the content.
+- As a site user, I can view a paginated list of posts so that I can select posts to view.
+- As a site user, I can click a post so that I can see more.
+- As a site user, I can like and unlike a post so that I can interact with the content.
+- As a site user, I can view the number of likes a post has gotten so that I can see which is the most popular.
+- As a site user, I can add and delete comments so that I can interact with the content.
+- As a site user, I can view the comments of a post so that I can follow the post conversation
+- As a site user, I can navigate around the site so that I can use all functionality.
+- As a site user, I can view a list of my posts so that I can get an overview of my activity.
+- As a site user, I can view the posts that I have liked so that I can get an overview of my activity.
+
+
+### DESIGN CHOICES
+
+**UX:**
+All clickable links are underlined when hovered over, the logo will take the user back to the home page but will not display an underline, it is simply clickable because of the common subconscious habit to use the logo as a form of navigation. The home view and the activity view have the same layout to create a familiar pattern in design. All forms are made with the same mindset.
+
+**Fonts:**
+The main font of the site is Bebas Neue used on all except the page logo which is in the Barlow font, both taken from [Google Fonts](https://fonts.google.com/)
+
+**Colors:**
+The colors of the page are a clear white and a light purple color (#ddbadd). For small details such as borders or links, I’ve chosen a darker purple (#520652) to make these elements stand out more. I have made these color choices to make the website look simplistic but colorful and welcoming.
+
