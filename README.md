@@ -17,11 +17,17 @@ This is a discussion forum, open for all with a motive to connect and share vari
 
 3. [DEPLOYMENT](#deployment)
 
-4. [TESTING](#testing)
+4. [USED TECHNOLOGY](#used-technology)
+    - [Languages](#languages)
+    - [Libraries](#libraries)
+    - [Frameworks](#frameworks)
+    - [Tools](#tools)
+
+5. [TESTING](#testing)
     - [Fixed Bugs](#fixed-bugs)
     - [Unfixed Bugs](#unfixed-bugs)
 
-5. [Credits](#credits)
+6. [Credits](#credits)
 
 ## FEATURES
 
@@ -82,6 +88,26 @@ The colors of the page are a clear white and a light purple color (#ddbadd). For
 This Project was deployed with Heroku, in the article linked below, there is a clear description of the deployment process. 
 - [Heroku Deployment](https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/)
 The article is taken from the website [freecodecamp.org](https://www.freecodecamp.org/) and is written by Stan Georgian.
+
+## USED TECHNOLOGY
+
+### Languages
+- HTML
+- CSS
+- Python
+
+### Libraries
+- Allauth
+
+### Frameworks
+- Bootstrap
+- Django
+
+### Tools
+- Github
+- Heroku
+- PostgreSQL
+- Cloudinary
 
 ## TESTING
 
