@@ -51,8 +51,28 @@ This is a discussion forum, open for all with a motive to connect and share vari
 All clickable links are underlined when hovered over, the logo will take the user back to the home page but will not display an underline, it is simply clickable because of the common subconscious habit to use the logo as a form of navigation. The home view and the activity view have the same layout to create a familiar pattern in design. All forms are made with the same mindset.
 
 **Fonts:**
-The main font of the site is Bebas Neue used on all except the page logo which is in the Barlow font, both taken from [Google Fonts](https://fonts.google.com/)
+The main font of the site is Bebas Neue used on all text elements except the page logo which is in the Barlow font, both taken from [Google Fonts](https://fonts.google.com/)
 
 **Colors:**
 The colors of the page are a clear white and a light purple color (#ddbadd). For small details such as borders or links, I’ve chosen a darker purple (#520652) to make these elements stand out more. I have made these color choices to make the website look simplistic but colorful and welcoming.
+
+## DEPLOYMENT
+ 
+This Project was deployed with Heroku, in the article linked below, there is a clear description of the deployment process. 
+- [Heroku Deployment](https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/)
+The article is taken from the website [freecodecamp.org](https://www.freecodecamp.org/) and is written by Stan Georgian.
+
+## TESTING
+
+### Fixed Bugs
+**Bug:** Application error when deploying on Heroku, Item could not be created due to the user being unuthorized.
+- Solution: Deployment was successful when doing a remote deployment via the Gitpod terminal.
+ 
+ 
+**Bug:** The CSS did not load on the deployed version of the site.
+- Solution: Added ‘{% load static %}’ to the top of index.html, the file extending the other templates of the repository, to load the stylesheet.
+
+### Unfixed Bugs
+- no bugs remaining
+
 
