@@ -109,6 +109,29 @@ The article is taken from the website [freecodecamp.org](https://www.freecodecam
 - PostgreSQL
 - Cloudinary
 
+## DATA STORAGE
+
+### Post Model
+
+| Database Key | Type              | Relationship    |
+|--------------|-------------------|-----------------|
+| Title        | CharField         |                 |
+| Post_id      | BigAutoField      | PrimaryKey      |
+| Author       | Django user model | ForeignKey      |
+| Created_on   | DateTimeField     |                 |
+| Content      | TextField         |                 |
+| Likes        | Django User model | ManyToManyField |
+
+### Comment Model
+
+| Database Key | Type              | Relationship |
+|--------------|-------------------|--------------|
+| Post         | Post model        | ForeignKey   |
+| Name         | Django user model | ForeignKey   |
+| Created_on   | DateTimeField     |              |
+| Body         | TextField         |              |
+
+
 ## TESTING
 
 ### Fixed Bugs
