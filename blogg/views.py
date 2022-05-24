@@ -70,13 +70,16 @@ def create_post(request):
     """
     View for creating new post
     """
-    form = PostForm(request.POST)
+
     if request.method == 'POST':
+        form = PostForm(request.POST)
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
             return redirect('post_list_view')
+    else:
+        form = PostForm()
 
     return render(request, 'create_post.html', {'form': form})
 
