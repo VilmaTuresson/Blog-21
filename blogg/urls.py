@@ -1,5 +1,4 @@
 from django.urls import path
-from blogg.views import post_list_view, post_details, create_post, delete_post, edit_post, liked_posts_view, delete_comment
 from . import views
 
 

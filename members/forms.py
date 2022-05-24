@@ -1,4 +1,8 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    UserChangeForm,
+    PasswordChangeForm
+)
 from django.contrib.auth.models import User
 from django import forms
 
@@ -21,7 +25,14 @@ class RegistrationFields(UserCreationForm):
         Meta class for RegistationFields class
         """
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
+        )
 
     def __init__(self, *args, **kwargs):
         """
