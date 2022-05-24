@@ -2,10 +2,11 @@
 
 {% block content %}
 
-    <h1>Edit post</h1>
+    
         <div class="container form-group">
             <div class="row">
                 <div class="col">
+                    <h1>Edit post</h1>
                     <form action="" method="POST">
                         {% csrf_token %}
                         {{ form }}

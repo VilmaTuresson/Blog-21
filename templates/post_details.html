@@ -10,15 +10,15 @@
             
             <h2>{{ post.title }}</h2>
 
-            <small>Post created by: {{ post.author.username }}</small>
+            
 
             <hr>
 
             {{ post.content }}
 
             <hr>
-
-            <small>{{ post.created_on }}</small> 
+            <small>Post created by: {{ post.author.username }} </small>
+            <small> | {{ post.created_on }}</small> 
 
             <br>
             <br>
