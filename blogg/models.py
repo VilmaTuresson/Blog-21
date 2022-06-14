@@ -39,7 +39,7 @@ class Comment(models.Model):
     name = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_comments')
     created_on = models.DateTimeField(auto_now_add=True)
-    body = models.TextField()
+    body = models.TextField(blank=True)
 
     class Meta:
         """

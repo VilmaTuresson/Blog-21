@@ -61,8 +61,8 @@
             {% if user.is_authenticated %}
             <h5>Add a comment!</h5>
                 <form action="{% url 'post_details' post.post_id %}" method="POST">
-                    {{ comment_form }}
                     {% csrf_token %}
+                    {{ comment_form }}
                     <button type="submit" class="btn btn-styled" id="post-btn">Submit</button>
                 </form>
             {% else %}

@@ -11,7 +11,7 @@
         <div class="col">
             <form action="" method="POST">
                 {% csrf_token %}
-                {{ form }}
+                {{ form.as_p }}
                 <button id="post-btn" class="btn btn-styled" type="submit">Edit</button>
             </form>
         </div>
