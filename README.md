@@ -16,6 +16,11 @@ This is a discussion forum, open for all with a motive to connect and share vari
       - [Colors](#colors)
 
 3. [DEPLOYMENT](#deployment)
+    - [Creating Heroku App](#creating-heroku-app)
+    - [Connecting to GitHub](#connecting-gitHub)
+    - [Environment Variables](#environment-variables)
+    - [Heroku Postgres Database](#heroku-postgres-database)
+    - [Deployment Update](#deployment-update)
 
 4. [USED TECHNOLOGY](#used-technology)
     - [Languages](#languages)
@@ -85,9 +90,46 @@ The colors of the page are a clear white and a light purple color (#ddbadd). For
 
 ## DEPLOYMENT
  
-This Project was deployed with Heroku, in the article linked below, there is a clear description of the deployment process. 
-- [Heroku Deployment](https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/)
-The article is taken from the website [freecodecamp.org](https://www.freecodecamp.org/) and is written by Stan Georgian.
+This project was deployed through Heroku using the following steps:
+
+### Creating Heroku App
++ Log into Heroku
++ Select 'Create New App' from your dashboard
++ Choose an app name (if there has been an app made with that name, you will be informed and will need to choose an alternative)
++ Select the appropriate region based on your location
++ Click 'Create App'
+
+### Connecting to GitHub
++ From the dashboard, click the 'Deploy' tab towards the top of the screen
++ From here, locate 'Deployment Method' and choose 'GitHub'
++ From the search bar newly appeared, locate your repository by name
++ When you have located the correct repository, click 'Connect'
+
+
+### Environment Variables
++ Click the 'Settings' tab towards the top of the page
++ Locate the 'Config Vars' and click 'Reveal Config Vars'
++ Add the variables needed
+
+
+### Heroku Postgres Database
++ Go to the resources tab in Heroku.
++ In the Add-ons search bar look for Heroku Postgres & select it.
++ Choose the Hobby Dev-Free option in plans.
++ Click submit order form.
++ Go back to the build environment and install 2 more requirements:
+  + ```pip3 install dj_databse_url```
+  + ```pip3 install psycopg2-binary```
+  make sure to add these to the requirements file using ```pip3 freeze > requirements.txt```
+
+### Deployment Update
+
+During the development of this project, Heroku had a security breach and stopped allowing deployment through their website. Since then, to push the latest code to Heroku the Heroku CLI needed to be used instead. To do so, the following steps were followed:
+
++ To log in, type heroku login -i into the terminal, then the relevant Heroku account's email and password.
++ Then connect to the relevant Heroku app via git remote by typing heroku git:remote -a app_name where 'app_name' is the name of the relevant Heroku app.
++ Finally, push to Heroku using git push heroku main
+
 
 ## USED TECHNOLOGY
 
@@ -147,6 +189,7 @@ The article is taken from the website [freecodecamp.org](https://www.freecodecam
 
 ## CREDITS
  
-**Stan Georgian for freecodecamp.org**
-- For the article on the Heroku deployment process
+**Amy O'Shea**
+- For the Heroku deployment process, taken from the README file of this repositiry
+- [Amy O'Sheas repository](https://github.com/AmyOShea)
 
