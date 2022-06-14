@@ -191,5 +191,5 @@ During the development of this project, Heroku had a security breach and stopped
  
 **Amy O'Shea**
 - For the Heroku deployment process, taken from the README file of this repositiry
-- [Amy O'Sheas repository](https://github.com/AmyOShea)
+- [Amy O'Sheas repository](https://github.com/AmyOShea/MS4-ARTstop#deployment)
 
