@@ -29,6 +29,7 @@ This is a discussion forum, open for all with a motive to connect and share vari
     - [Tools](#tools)
 
 5. [TESTING](#testing)
+    - [Manual Testing](#manual-testing)
     - [Fixed Bugs](#fixed-bugs)
     - [Unfixed Bugs](#unfixed-bugs)
 
@@ -175,6 +176,42 @@ During the development of this project, Heroku had a security breach and stopped
 
 
 ## TESTING
+
+### Manual Testing
+
+**I have tested this website by doing the following:**
+
+Submitted all forms from different accounts with different content:
+- Registration form
+- Login form
+- Add post form
+- Update profile form
+- Update password form
+- Comment form
+- Edit post form
+
+Navigated through all links:
+- Logo
+- Home 
+- Add Post 
+- Activity
+- Edit Profile
+- Logout
+- Login
+- Register
+- Post Title
+
+Tested buttons:
+- Back to homepage
+- Like/Unlike
+- Delete comment
+- Posts in the activity tab
+- Liked posts in the activity tab
+- Go back from changing password
+- All submit buttons
+
+All tests were successful when tested on multiple devices through different accounts. This website is fully responsive on all devices and across browsers.
+
 
 ### Fixed Bugs
 **Bug:** Application error when deploying on Heroku, Item could not be created due to the user being unuthorized.
