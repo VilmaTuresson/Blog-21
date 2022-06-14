@@ -91,29 +91,29 @@ The colors of the page are a clear white and a light purple color (#ddbadd). For
 
 ## DEPLOYMENT
  
-This project was deployed through Heroku using the following steps:
+**This project was deployed through Heroku using the following steps:**
 
-### Creating Heroku App
+**Creating Heroku App**
 + Log into Heroku
 + Select 'Create New App' from your dashboard
 + Choose an app name (if there has been an app made with that name, you will be informed and will need to choose an alternative)
 + Select the appropriate region based on your location
 + Click 'Create App'
 
-### Connecting to GitHub
+**Connecting to GitHub**
 + From the dashboard, click the 'Deploy' tab towards the top of the screen
 + From here, locate 'Deployment Method' and choose 'GitHub'
 + From the search bar newly appeared, locate your repository by name
 + When you have located the correct repository, click 'Connect'
 
 
-### Environment Variables
+**Environment Variables**
 + Click the 'Settings' tab towards the top of the page
 + Locate the 'Config Vars' and click 'Reveal Config Vars'
 + Add the variables needed
 
 
-### Heroku Postgres Database
+**Heroku Postgres Database**
 + Go to the resources tab in Heroku.
 + In the Add-ons search bar look for Heroku Postgres & select it.
 + Choose the Hobby Dev-Free option in plans.
@@ -123,7 +123,7 @@ This project was deployed through Heroku using the following steps:
   + ```pip3 install psycopg2-binary```
   make sure to add these to the requirements file using ```pip3 freeze > requirements.txt```
 
-### Deployment Update
+**Deployment Update**
 
 During the development of this project, Heroku had a security breach and stopped allowing deployment through their website. Since then, to push the latest code to Heroku the Heroku CLI needed to be used instead. To do so, the following steps were followed:
 
